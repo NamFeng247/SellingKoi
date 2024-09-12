@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SellingKoi.Models.Entities.Customer>
+
+@{
+    ViewData["Title"] = "Customer Management";
+}
+
+<h2>Customer Management</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Address</th>
+                <th>Registration Date</th>
+                <th></th>
+                <!-- Thêm các cột khác nếu cần -->
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model)
+            {
+                <tr>
+                    <td>@customer.Name
+                        @* <input type="hidden" value="@customer.Id" /> *@
+                    </td>
+                    <td>@customer.Email</td>
+                    <td>@customer.Phone</td>
+                    <td>@customer.Address</td>
+                    <td>@customer.Registration_date</td>
+                    <td>
+                        <a asp-action="Details" asp-controller="Customer" asp-route-id="@customer.Id" class="btn btn-info btn-sm">More detail</a>
+                        <form asp-action="NegateCustomer" asp-controller="Customer" method="post" style="display: inline;">
+                         <input type="hidden" name="id" value="@customer.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm">Negate Account</button>
+                        </form>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No customers found.</p>
+}
+
+<a href="@Url.Action("AddCustomer", "Customer")" class="button">Add Customer</a>
+
+
