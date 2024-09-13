@@ -13,9 +13,14 @@ namespace SellingKoi.Controllers
             _koiService = koiService;
         }
 
+
         public async Task<IActionResult> KoiManagement()
         {
             var kois = await _koiService.GetAllKoisAsync();
+            if(kois == null)
+            {
+                return NotFound("No Koi are found !"); 
+            }
             return View(kois);
         }
 
@@ -47,7 +52,7 @@ namespace SellingKoi.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _koiService.AddKoiAsync(koi);
+                await _koiService.CreateKoiAsync(koi);
                 return RedirectToAction(nameof(KoiManagement));
             }
             return View(koi);
@@ -66,7 +71,7 @@ namespace SellingKoi.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditKoi(Guid id, [Bind("Id,Name,Email,Phone,Address")] KOI koi)
+        public async Task<IActionResult> EditKoi(Guid id, [Bind("Id,Name,Type,Age,Price,Description,FarmID,Length")] KOI koi)
         {
             if (id != koi.Id)
             {
@@ -91,7 +96,7 @@ namespace SellingKoi.Controllers
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> NegateCustomer(Guid id)
+        public async Task<IActionResult> NegateKoi(Guid id)
         {
             try
             {
@@ -99,7 +104,7 @@ namespace SellingKoi.Controllers
                 TempData["SuccessMessage"] = "Customer account has been negated successfully.";
                 return RedirectToAction(nameof(KoiManagement));
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException)    
             {
                 TempData["ErrorMessage"] = $"Customer with ID {id} not found.";
                 return RedirectToAction(nameof(KoiManagement));

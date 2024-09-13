@@ -12,7 +12,7 @@ namespace SellingKoi.Services
         {
             _context = dataContext;
         }
-        public async Task AddKoiAsync(KOI Koi)
+        public async Task CreateKoiAsync(KOI Koi)
         {
             _context.KOIs.Add(Koi);
             await _context.SaveChangesAsync();
@@ -32,7 +32,7 @@ namespace SellingKoi.Services
 
         public async Task<KOI> GetKoiByIdAsync(Guid id)
         {
-            return await _context.KOIs.FindAsync();
+            return await _context.KOIs.FindAsync(id);
         }
 
         public async Task NegateKoiAsync(Guid id)

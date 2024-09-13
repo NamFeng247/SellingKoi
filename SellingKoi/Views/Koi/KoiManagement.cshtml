@@ -7,7 +7,7 @@
 <h2>Koi List</h2>
 
 <p>
-    <a asp-action="Create" class="btn btn-primary">Create New Koi</a>
+    <a asp-controller="Koi" asp-action="CreateKoi" class="btn btn-primary">Create New Koi</a>
 </p>
 
 @if (Model != null && Model.Any())
@@ -17,24 +17,25 @@
         {
             <div class="col-md-4 mb-4">
                 <div class="card">
-                    else
-                    {
                         <img src="/images/default-koi.jpg" class="card-img-top" alt="Default Koi Image">
-                    }
                     <div class="card-body">
                         <h5 class="card-title">@koi.Name</h5>
                         <p class="card-text">
                             <strong>Type:</strong> @koi.Type<br>
                             <strong>Length:</strong> @koi.Length cm<br>
-                            <strong>Price:</strong> $@koi.Price<br>
+                            <strong>Price:</strong> @koi.Price.ToString("N0") vnd<br>
                             <strong>Farm ID:</strong> @koi.FarmID
                         </p>
                         <p class="card-text">
                             <small class="text-muted">Registered on @koi.Registration_date.ToShortDateString()</small>
                         </p>
-                        <a asp-action="Details" asp-route-id="@koi.Id" class="btn btn-info">Details</a>
-                        <a asp-action="Edit" asp-route-id="@koi.Id" class="btn btn-warning">Edit</a>
-                        <a asp-action="Delete" asp-route-id="@koi.Id" class="btn btn-danger">Delete</a>
+                        <a asp-controller="Koi" asp-action="Details" asp-route-id="@koi.Id" class="btn btn-info">Details</a>
+                        <a asp-controller="Koi" asp-action="EditKoi" asp-route-id="@koi.Id" class="btn btn-warning">Edit</a>
+                        <form asp-action="NegateKoi" asp-controller="Koi" method="post" style="display: inline;">
+                            <input type="hidden" name="id" value="@koi.Id" />
+                            <button type="submit" class="btn btn-warning btn-sm">Negate Account</button>
+                        </form>
+                        @* <a asp-controller="Koi" asp-action="NegateKoi" asp-route-id="@koi.Id" class="btn btn-danger">Delete</a> *@
                     </div>
                 </div>
             </div>
