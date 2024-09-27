@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SellingKoi.Data;
 using SellingKoi.Models;
-using SellingKoi.Models.Entities;
 
 namespace SellingKoi.Services
 {
@@ -12,15 +11,22 @@ namespace SellingKoi.Services
         {
             _context = dataContext;
         }
-        public async Task CreateKoiAsync(KOI Koi)
+        public async Task CreateKoiAsync(KOI koi)
         {
-            _context.KOIs.Add(Koi);
+            // Kiểm tra xem FarmID có hợp lệ không
+            var farmExists = await _context.Farms.AnyAsync(f => f.Id == koi.FarmID);
+            if (!farmExists)
+            {
+                throw new ArgumentException("FarmID không hợp lệ.");
+            }
+                
+            _context.KOIs.Add(koi);
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<KOI>> GetAllKoisAsync()
         {
-            return await _context.KOIs.Where(k => k.Status == true).ToListAsync();
+            return await _context.KOIs.Where(k => k.Status ).Include(k => k.Farm).ToListAsync();
         }
         
         //not use
@@ -32,9 +38,10 @@ namespace SellingKoi.Services
 
         public async Task<KOI> GetKoiByIdAsync(Guid id)
         {
-            return await _context.KOIs.FindAsync(id);
+            //return await _context.KOIs.FindAsync(id);
+            return await _context.KOIs.Include(k => k.Farm).FirstOrDefaultAsync(k => k.Id == id);
         }
-
+            
         public async Task NegateKoiAsync(Guid id)
         {
             var koi = await _context.KOIs.FindAsync(id);
