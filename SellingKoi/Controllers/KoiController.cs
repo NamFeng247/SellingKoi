@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using SellingKoi.Data;
 using SellingKoi.Models;
-using SellingKoi.Models.Entities;
 using SellingKoi.Services;
 
 namespace SellingKoi.Controllers
@@ -8,9 +10,12 @@ namespace SellingKoi.Controllers
     public class KoiController : Controller
     {
         private readonly IKoiService _koiService;
-        public KoiController(IKoiService koiService)
+        private readonly IFarmService _farmService;
+
+        public KoiController(IKoiService koiService,IFarmService farmService)
         {
             _koiService = koiService;
+            _farmService = farmService;
         }
 
 
@@ -24,11 +29,10 @@ namespace SellingKoi.Controllers
             return View(kois);
         }
 
-
-        public async Task<IActionResult> Details(Guid id)
+        [HttpGet]
+        public async Task<IActionResult> DetailsKoi(Guid id)
         {
   
-
             if (id == null)
             {
                 return NotFound($"Koi with id '{id}' not found.");
@@ -41,57 +45,71 @@ namespace SellingKoi.Controllers
             }
             return View(koi);
         }
-
-        public IActionResult CreateKoi()
+        [HttpGet]
+        public async Task <IActionResult> CreateKoi(Guid farmId)
         {
-            return View();
+            //string farmidUpper = farmId.ToString().ToUpper();
+            //var farm = await _dataContext.Farms.FindAsync(farmidUpper);
+            //var farm = await _farmService.GetFarmByIdAsync(farmidUpper);
+
+            var koi = new KOI
+            {
+                FarmID = farmId, // Gán FarmID cho Koi mới
+                //Farm = farm
+            };
+            return View(koi);
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateKoi(KOI koi)
         {
-            if (ModelState.IsValid)
+            var farm = await _farmService.GetFarmByIdAsync(koi.FarmID.ToString().ToUpper());
+            koi.Farm = farm;
+            if (koi != null)
             {
                 await _koiService.CreateKoiAsync(koi);
-                return RedirectToAction(nameof(KoiManagement));
+                //return RedirectToAction(nameof(KoiManagement));
+                return RedirectToAction("DetailsFarm", "Farm", new { id = koi.FarmID }); // Chuyển hướng về trang chi tiết farm
             }
-            return View(koi);
+            else
+            {
+                ModelState.AddModelError("", "There was an issue with the data provided. Please check your inputs.");
+                return View(koi);
+            }
+
         }
 
+        [HttpGet]
         public async Task<IActionResult> EditKoi(Guid id)
         {
-
             var koi= await _koiService.GetKoiByIdAsync(id);
             if (koi == null)
             {
                 return NotFound();
-            }
+            }   
             return View(koi);
         }
 
         [HttpPost]
         //[ValidateAntiForgeryToken]
-        public async Task<IActionResult> EditKoi(Guid id, [Bind("Id,Name,Type,Age,Price,Description,FarmID,Length")] KOI koi)
+        public async Task<IActionResult> EditKoi(Guid id, [Bind("Id,Name,Type,Age,Description,FarmID")] KOI koi)
         {
             if (id != koi.Id)
             {
                 return NotFound();
             }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    await _koiService.UpdateKoiAsync(koi);
-                    return RedirectToAction(nameof(KoiManagement));
-                }
-                catch (Exception ex)
-                {
-                    // Log the error
-                    ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
-                }
-            }
-            return View(koi);
+             try
+             {
+                 await _koiService.UpdateKoiAsync(koi);
+             //return RedirectToAction(nameof(KoiManagement));
+             return RedirectToAction("DetailsFarm", "Farm", new { id = koi.FarmID });
+             }   
+             catch (Exception ex)
+             {
+             // Log the error
+             ModelState.AddModelError("", "Unable to save changes. Try again, and if the problem persists, see your system administrator.");
+             return NotFound();
+             }
         }
 
         [HttpPost]
@@ -100,20 +118,21 @@ namespace SellingKoi.Controllers
         {
             try
             {
+                var koi = await _koiService.GetKoiByIdAsync(id);
                 await _koiService.NegateKoiAsync(id);
-                TempData["SuccessMessage"] = "Customer account has been negated successfully.";
-                return RedirectToAction(nameof(KoiManagement));
+                TempData["SuccessMessage"] = "Koi has been negated successfully.";
+                return RedirectToAction("DetailsFarm", "Farm", new { id = koi.FarmID });
             }
             catch (KeyNotFoundException)    
             {
-                TempData["ErrorMessage"] = $"Customer with ID {id} not found.";
-                return RedirectToAction(nameof(KoiManagement));
+                TempData["ErrorMessage"] = $"Koi with ID {id} not found.";
+                return NotFound();
             }
             catch (Exception ex)
             {
                 // Log the exception
                 TempData["ErrorMessage"] = "An error occurred while updating the customer status.";
-                return RedirectToAction(nameof(KoiManagement));
+                return NotFound();
             }
         }
     }

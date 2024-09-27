@@ -1,5 +1,7 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SellingKoi.Data;
+using SellingKoi.Models;
 using SellingKoi.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,10 +12,29 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SellingKoiString")));
 
-builder.Services.AddScoped<ICustomerService, CustomerService>();
+//builder.Services.AddIdentity<Account, IdentityUser>(options =>
+//{ }
+//).AddEntityFrameworkStores<DataContext>();
+
+
+builder.Services.AddScoped<IAccountService, AccountService>();
+
 builder.Services.AddScoped<IKoiService, KoiService>();
 
+builder.Services.AddScoped<IFarmService, FarmService>();
+
+
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 var app = builder.Build();
+app.UseSession();
+
+
 
 
 // Configure the HTTP request pipeline.
