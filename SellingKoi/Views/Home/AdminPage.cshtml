@@ -1,9 +1,11 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Management</title>
+    <title>Admin Management</title>
     <style>
         table {
             border-collapse: collapse;
@@ -31,6 +33,8 @@
         }
     </style>
 </head>
+
+
 <body>
     <h1>Admin Page</h1>
     
@@ -38,6 +42,7 @@
     <a href="@Url.Action("AccountManagement", "Account")" class="button">Customer Management</a>
     <a href="@Url.Action("KoiManagement", "Koi")" class="button">Koi Management</a>
     <a href="@Url.Action("FarmManagement", "Farm")" class="button">Farm Management</a>
+    <a href="@Url.Action("RouteManagement", "Route")" class="button">Route Management</a>
 
 </body>
 </html>

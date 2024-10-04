@@ -11,6 +11,7 @@ namespace SellingKoi.Data
         public DbSet<Account> Accounts { get; set; }
         public DbSet<Farm> Farms { get; set; }
         public DbSet<KOI> KOIs { get; set; }
+        public DbSet<Models.Route> Routes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -21,6 +22,11 @@ namespace SellingKoi.Data
                 .HasMany(f => f.KOIs)
                 .WithOne(k => k.Farm)
                 .HasForeignKey(k => k.FarmID);
+
+            modelBuilder.Entity<Farm>()
+                .HasMany(f => f.Routes)
+                .WithMany(r => r.Farms);
         }
+
     }
 }

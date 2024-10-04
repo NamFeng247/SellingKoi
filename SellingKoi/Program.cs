@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SellingKoi.Data;
@@ -12,6 +13,17 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<DataContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("SellingKoiString")));
 
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddRoles<IdentityRole>()
+//    .AddEntityFrameworkStores<DataContext>();
+
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("RequireAdminRole", policy => policy.RequireRole("Admin"));
+//    options.AddPolicy("RequireUserRole", policy => policy.RequireRole("User"));
+//});
+
+
 //builder.Services.AddIdentity<Account, IdentityUser>(options =>
 //{ }
 //).AddEntityFrameworkStores<DataContext>();
@@ -22,6 +34,9 @@ builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<IKoiService, KoiService>();
 
 builder.Services.AddScoped<IFarmService, FarmService>();
+
+builder.Services.AddScoped<IRouteService, RouteService>();
+
 
 
 builder.Services.AddSession(options =>

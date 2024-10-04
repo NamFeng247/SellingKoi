@@ -23,5 +23,9 @@ namespace SellingKoi.Models
 
         // Navigation Property(1 Farm có nhiều Koi)
         public List<KOI> KOIs { get; set; } = new List<KOI>();
+        
+        //nhiều Farm có nhiều Route
+        public List<Route> Routes { get; set; } = new List<Route>();
+
     }
 }
