@@ -1,0 +1,42 @@
+﻿@model dynamic
+
+<h2>Đăng kí</h2>
+
+<form asp-controller="Account" asp-action="SignUp" method="post" onsubmit="return validatePassword()">
+    <div>
+        <label for="fullname">Nhập họ tên của bạn:</label>
+        <input type="text" id="fullname" name="fullname" required />
+    </div>
+    <div>
+        <label for="username">Tên đăng nhập:</label>
+        <input type="text" id="username" name="username" required />
+    </div>
+    <div>
+        <label for="password">Mật khẩu:</label>
+        <input type="password" id="password" name="password" required />
+    </div>
+    <div>
+        <label for="password">Nhập lại mật khẩu:</label>
+        <input type="password" id="repassword" name="repassword" required />
+    </div>
+    @* error message *@
+    <p id="errorMessage" style="color:red;"></p>
+
+    <div>
+        <button type="submit">Đăng kí</button>
+    </div>
+</form>
+
+<script>
+    function validatePassword() {
+        var password = document.getElementById("password").value;
+        var repassword = document.getElementById("repassword").value;
+
+        if (password !== repassword) {
+            document.getElementById("errorMessage").innerText = "Mật khẩu và xác nhận mật khẩu không khớp.";
+            return false; // Ngăn không cho form submit
+        }
+
+        return true; // Cho phép submit nếu mật khẩu khớp
+    }
+</script>
