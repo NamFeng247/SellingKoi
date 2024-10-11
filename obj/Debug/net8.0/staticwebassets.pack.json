@@ -25,6 +25,10 @@
       "PackagePath": "staticwebassets\\Images\\logo\\koi-logo.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\login.css",
+      "PackagePath": "staticwebassets\\css\\login.css"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\site.css",
       "PackagePath": "staticwebassets\\css\\site.css"
     },

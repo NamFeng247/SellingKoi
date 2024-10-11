@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TFn04uqf3DM99XSsjIuG9mP/H8htkHlMEDpaBHzskA0=",
+  "Hash": "55papQcz+Y8UQzNHzIT6V3thkCM6SFl2xY76fXF2Lzk=",
   "Source": "SellingKoi",
   "BasePath": "_content/SellingKoi",
   "Mode": "Default",
@@ -1193,6 +1193,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\SellingKoi.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\login.css",
+      "SourceId": "SellingKoi",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\",
+      "BasePath": "_content/SellingKoi",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\site.css",
