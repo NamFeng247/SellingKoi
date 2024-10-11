@@ -15,6 +15,7 @@ html {
 html {
   position: relative;
   min-height: 100%;
+  scroll-padding-top: 56px; /* Should match the navbar height */
 }
 
 body {
@@ -33,6 +34,8 @@ body {
 header {
   background-color: #f8f9fa;
   padding: 20px 0;
+  margin-top: 0;
+  padding-top: 0;
 }
 
 .header-content {
@@ -100,9 +103,10 @@ nav ul li a {
 
 /* Footer styles */
 footer {
-  background-color: #333;
-  color: #fff;
-  padding: 40px 0 20px;
+  background-color: #333; /* Or any dark color of your choice */
+  color: white;
+  padding: 20px 0;
+  height: 230px;
 }
 
 .footer-content {
@@ -115,6 +119,8 @@ footer {
   flex: 1 1 100%;
   margin-bottom: 30px;
   text-align: center;
+  margin-right: 50px;
+  padding: 20px 100px;
 }
 
 .footer-logo img {
@@ -135,9 +141,15 @@ footer {
   flex-wrap: wrap;
 }
 
-.footer-contact, .footer-links {
+.footer-contact {
   flex: 1 1 30%;
-  margin-bottom: 20px;
+  margin-top: 20px;
+  margin-right: 50px;
+}
+.footer-links {
+  flex: 1 1 30%;
+  margin-top: 20px;
+  margin-left: 50px;
 }
 
 .footer-contact h3, .footer-links h3 {
@@ -153,6 +165,7 @@ footer {
 
 .footer-contact ul li, .footer-links ul li {
   margin-bottom: 10px;
+  margin-right: 50px;
 }
 
 .footer-contact ul li, .footer-links ul li a {
@@ -180,7 +193,7 @@ footer {
 @media (min-width: 768px) {
   .footer-logo {
     flex: 1 1 30%;
-    text-align: left;
+    text-align: center;
   }
 
   .footer-info {
@@ -188,8 +201,84 @@ footer {
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 500px) {
   .footer-contact, .footer-links {
     flex: 1 1 100%;
   }
+}
+
+.footer-links ul,
+.footer-contact-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer-links ul li a,
+.footer-contact-list li a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-links ul li a:hover,
+.footer-contact-list li a:hover {
+    text-decoration: underline;
+}
+
+.custom-navbar .navbar-brand {
+    margin-left: 70px;
+    font-size: 1.5rem; /* Adjust this value to make the text bigger */
+}
+
+.custom-navbar .navbar-nav {
+    margin-left: auto;
+    margin-right: 200px;
+}
+
+@media (max-width: 576px) {
+    .custom-navbar .navbar-brand {
+        margin-left: 15px; /* Smaller margin on mobile devices */
+    }
+    
+    .custom-navbar .navbar-nav {
+        margin-right: 15px; /* Smaller margin on mobile devices */
+    }
+}
+
+body {
+    padding-top: 56px; /* Adjust this value based on your navbar height */
+}
+
+.custom-navbar {
+    padding: 0;
+}
+
+.custom-container {
+    background-color: white;
+    height: 56px; /* Adjust this value to match your desired navbar height */
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,.1);
+}
+
+.custom-container .navbar-brand {
+    margin-left: 70px;
+    font-size: 1.5rem;
+}
+
+.custom-container .navbar-nav {
+    margin-right: 100px;
+}
+
+@media (max-width: 576px) {
+    .custom-container .navbar-brand {
+        margin-left: 15px;
+    }
+    
+    .custom-container .navbar-nav {
+        margin-right: 15px;
+    }
+}
+
+html {
+    scroll-padding-top: 56px; /* Should match the navbar height */
 }
