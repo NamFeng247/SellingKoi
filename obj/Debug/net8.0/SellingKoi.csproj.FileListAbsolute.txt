@@ -128,6 +128,7 @@ C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\SellingKo
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\SellingKoi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\SellingKoi.RazorAssemblyInfo.cache
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\SellingKoi.RazorAssemblyInfo.cs
+C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\SellingKoi.sourcelink.json
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ADMIN\Desktop\SWP\SellingKoi-main\SellingKoi\obj\Debug\net8.0\staticwebassets\msbuild.SellingKoi.Microsoft.AspNetCore.StaticWebAssets.props
