@@ -39,10 +39,57 @@ button.accept-policy[b-pf8f0mwo49] {
   line-height: inherit;
 }
 
-.footer[b-pf8f0mwo49] {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+html[b-pf8f0mwo49], body[b-pf8f0mwo49] {
+  height: 100%;
+  margin: 0;
+}
+
+body[b-pf8f0mwo49] {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper[b-pf8f0mwo49] {
+  flex: 1 0 auto;
+}
+
+footer[b-pf8f0mwo49] {
+  flex-shrink: 0;
+  background-color: #f8f9fa; /* Light gray background, adjust as needed */
+  color: #333; /* Dark text color, adjust as needed */
+  padding: 20px 0;
+}
+
+.footer-logo[b-pf8f0mwo49] {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo img[b-pf8f0mwo49] {
+  margin-right: 10px;
+}
+
+.footer h3[b-pf8f0mwo49] {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  color: #0056b3; /* Adjust the color as needed */
+}
+
+.footer ul[b-pf8f0mwo49] {
+  padding-left: 0;
+}
+
+.footer ul li[b-pf8f0mwo49] {
+  margin-bottom: 0.5rem;
+}
+
+.footer a[b-pf8f0mwo49] {
+  color: #6c757d; /* Adjust link color as needed */
+  text-decoration: none;
+}
+
+.footer a:hover[b-pf8f0mwo49] {
+  color: #0056b3; /* Adjust hover color as needed */
+  text-decoration: underline;
 }

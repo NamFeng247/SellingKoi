@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] - SellingKoi</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @RenderSection("Styles", required: false)
 </head>
 <body>
     <header>
@@ -38,12 +39,13 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+    <div class="content-wrapper">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
-
     <footer>
         <div class="footer-content">
             <div class="footer-logo">
@@ -55,7 +57,7 @@
                 <ul class="footer-contact-list">
                     <li><a href="#">52 Street, Long Thanh My, Thu Duc City, Ho Chi Minh City, Vietnam</a></li>
                     
-                    <li><a href="#">Phone: 1900.2675</a></li>
+                    <li><a href="#">Phone: 1900 -2675</a></li>
                     <li><a href="#">Email: info@koiorderingsystem.com</a></li>
                 </ul>
             </div>
@@ -72,6 +74,10 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

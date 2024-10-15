@@ -2,6 +2,89 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+<div class="container-fluid p-0">
+    <div class="hero-banner position-relative">
+        <img src="~/images/banners/image 8.png" alt="Introduction to Nishikigoi" class="img-fluid w-100">
+        <div class="hero-text position-absolute text-white">
+            <h1 class="display-4">Welcome to Koi Ordering System</h1>
+            <p class="lead">We provide Koi farm tour services at the best prices</p>
+            <a href="#learn-more" class="btn btn-primary btn-lg">Learn More</a>
+        </div>
+    </div>
+
+    <div class="container my-5" id="learn-more">
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img src="~/images/koi/image 14.png" alt="Colorful Koi" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">What is Koi?</h2>
+                <p>Koi (鯉), or more specifically Nishikigoi (錦鯉), are colored varieties of carp kept for decorative purposes in outdoor koi ponds or water gardens. Originating from breeding in Niigata, Japan in the early 19th century, these 'living jewels' have become a symbol of beauty and tranquility.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5 align-items-center flex-md-row-reverse">
+            <div class="col-md-6">
+                <img src="~/images/koi/image 15.png" alt="Koi Farm" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">What do Koi Farms do?</h2>
+                <p>Koi farms are dedicated to importing and raising Koi using proven techniques. They provide a clean, disease-free environment to ensure the health, growth, and beauty of these magnificent creatures. These farms also serve as excellent tourist attractions for Koi enthusiasts and curious visitors alike.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5 align-items-center">
+            <div class="col-md-6">
+                <img src="~/images/koi/image 16.png" alt="Rice Field Scenery" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Immerse yourself in the origins of Koi</h2>
+                <p>Step into the fascinating world of Koi breeding, where centuries-old traditions and modern refinement combine to create living masterpieces. Our tours are designed to provide a seamless, enriching experience for both passionate Koi enthusiasts and newcomers alike.</p>
+            </div>
+        </div>
+
+        <div class="row mb-5 align-items-center flex-md-row-reverse">
+            <div class="col-md-6">
+                <img src="~/images/koi/image 17.png" alt="Koi Varieties" class="img-fluid rounded shadow">
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-3">Learn about Koi varieties</h2>
+                <p>With over 100 different types of Koi (Nishikigoi), each variety boasts unique colors, patterns, and body confirmations. Discover the intricate world of Koi classification and learn to identify these living works of art.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-light py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">Start your Koi journey now</h2>
+            <p class="text-center mb-4">Register an account on our website to book tours, request Koi viewings, receive our best services, and much more.</p>
+            <div class="text-center">
+                <a href="/Account/Register" class="btn btn-primary btn-lg mr-2">Register</a>
+                <a href="/Account/Login" class="btn btn-outline-primary btn-lg">Login</a>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Styles {
+    <style>
+        .hero-banner {
+            height: 60vh;
+            overflow: hidden;
+        }
+        .hero-banner img {
+            object-fit: cover;
+            object-position: center;
+            height: 100%;
+        }
+        .hero-text {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+    </style>
+}

@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\SellingKoi.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\banners\\image 8.png",
+      "PackagePath": "staticwebassets\\Images\\banners\\image 8.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\default-koi.jpg",
       "PackagePath": "staticwebassets\\Images\\default-koi.jpg"
     },
@@ -21,8 +25,28 @@
       "PackagePath": "staticwebassets\\Images\\icons\\mdi_location.png"
     },
     {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\koi\\image 14.png",
+      "PackagePath": "staticwebassets\\Images\\koi\\image 14.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\koi\\image 15.png",
+      "PackagePath": "staticwebassets\\Images\\koi\\image 15.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\koi\\image 16.png",
+      "PackagePath": "staticwebassets\\Images\\koi\\image 16.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\koi\\image 17.png",
+      "PackagePath": "staticwebassets\\Images\\koi\\image 17.png"
+    },
+    {
       "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\Images\\logo\\koi-logo.png",
       "PackagePath": "staticwebassets\\Images\\logo\\koi-logo.png"
+    },
+    {
+      "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\home.css",
+      "PackagePath": "staticwebassets\\css\\home.css"
     },
     {
       "Id": "C:\\Users\\ADMIN\\Desktop\\SWP\\SellingKoi-main\\SellingKoi\\wwwroot\\css\\login.css",

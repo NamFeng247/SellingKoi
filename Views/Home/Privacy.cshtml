@@ -1,6 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
 
-<p>Use this page to detail your site's privacy policy.</p>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h1 class="card-title text-center mb-4">@ViewData["Title"]</h1>
+                    
+                    <p class="lead">At Koi Ordering System, we are committed to protecting your privacy and ensuring the security of your personal information.</p>
+                    
+                    <h2 class="mt-4">Information We Collect</h2>
+                    <p>We collect information that you provide directly to us, such as when you create an account, place an order, or contact our customer support. This may include:</p>
+                    <ul>
+                        <li>Name and contact information</li>
+                        <li>Account login credentials</li>
+                        <li>Payment information</li>
+                        <li>Order history and preferences</li>
+                    </ul>
+
+                    <h2 class="mt-4">How We Use Your Information</h2>
+                    <p>We use the information we collect to:</p>
+                    <ul>
+                        <li>Process and fulfill your orders</li>
+                        <li>Provide customer support</li>
+                        <li>Improve our services and develop new features</li>
+                        <li>Send you important updates and marketing communications (with your consent)</li>
+                    </ul>
+
+                    <h2 class="mt-4">Data Security</h2>
+                    <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized or unlawful processing, accidental loss, destruction, or damage.</p>
+
+                    <h2 class="mt-4">Your Rights</h2>
+                    <p>You have the right to access, correct, or delete your personal information. You may also have the right to restrict or object to certain processing of your data. To exercise these rights, please contact us using the information provided below.</p>
+
+                    <h2 class="mt-4">Contact Us</h2>
+                    <p>If you have any questions or concerns about our privacy policy, please contact us at:</p>
+                    <address>
+                        <strong>Koi Ordering System</strong><br>
+                        123 Koi Street, Fishpond City<br>
+                        Email: privacy@koiorderingsystem.com<br>
+                        Phone: (123) 456-7890
+                    </address>
+
+                    <p class="mt-4 text-muted">Last updated: @DateTime.Now.ToString("MMMM dd, yyyy")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
