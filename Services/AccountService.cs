@@ -7,7 +7,7 @@ namespace SellingKoi.Services
     public class AccountService : IAccountService
     {
         private readonly DataContext _dataContext;
-        public AccountService(DataContext context)  
+        public AccountService(DataContext context)
         {
             _dataContext = context;
         }
@@ -64,7 +64,7 @@ namespace SellingKoi.Services
             var account = new Account
             {
                 Username = username,
-                Password =password,
+                Password = password,
                 Fullname = fullname,
                 Role = "Customer"
             };
@@ -74,14 +74,20 @@ namespace SellingKoi.Services
             return await Task.FromResult(true);
         }
 
+        // public async Task<bool> LoginAsync(string username, string password)
+        // {
+        //     var account = _dataContext.Accounts.FirstOrDefault(a => a.Username == username);
+        //     if (account == null)
+        //     {
+        //         return await Task.FromResult(false);
+        //     }
+        //     return await Task.FromResult(true);
+        // }
+
         public async Task<bool> LoginAsync(string username, string password)
         {
-            var account = _dataContext.Accounts.FirstOrDefault(a => a.Username == username);
-            if (account == null)
-            {
-                return await Task.FromResult(false);
-            }
-            return await Task.FromResult(true);
+            var account = await _dataContext.Accounts.FirstOrDefaultAsync(a => a.Username == username && a.Password == password);
+            return account != null;
         }
 
         public Task LogoutAsync()

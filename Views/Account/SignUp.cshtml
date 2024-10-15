@@ -1,4 +1,6 @@
-﻿@{
+﻿@model dynamic
+
+@{
     Layout = null;
 }
 
@@ -61,27 +63,41 @@
         .login-link a:hover {
             text-decoration: underline;
         }
-        footer {
-            margin-top: 20px;
+        #errorMessage {
+            color: red;
             text-align: center;
-            color: #666;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="signup-container">
         <h2>Đăng ký</h2>
-        <form class="signup-form" asp-controller="Account" asp-action="SignUp" method="post">
-            <input type="text" name="Username" placeholder="Tên đăng nhập" required>
-            <input type="email" name="Email" placeholder="Email" required>
-            <input type="password" name="Password" placeholder="Mật khẩu" required>
-            <input type="password" name="ConfirmPassword" placeholder="Xác nhận mật khẩu" required>
+        <form class="signup-form" asp-controller="Account" asp-action="SignUp" method="post" onsubmit="return validatePassword()">
+            <input type="text" id="fullname" name="fullname" placeholder="Họ tên" required />
+            <input type="text" id="username" name="username" placeholder="Tên đăng nhập" required />
+            <input type="password" id="password" name="password" placeholder="Mật khẩu" required />
+            <input type="password" id="repassword" name="repassword" placeholder="Nhập lại mật khẩu" required />
+            <p id="errorMessage"></p>
             <button type="submit">Đăng ký</button>
         </form>
-        
+        <div class="login-link">
+            <a asp-controller="Account" asp-action="Login">Đã có tài khoản? Đăng nhập</a>
+        </div>
     </div>
-    <footer>
-        <p>&copy; 2023 SellingKoi. All rights reserved.</p>
-    </footer>
+
+    <script>
+        function validatePassword() {
+            var password = document.getElementById("password").value;
+            var repassword = document.getElementById("repassword").value;
+
+            if (password !== repassword) {
+                document.getElementById("errorMessage").innerText = "Mật khẩu và xác nhận mật khẩu không khớp.";
+                return false;
+            }
+
+            return true;
+        }
+    </script>
 </body>
 </html>
